@@ -1,5 +1,45 @@
+body {
+    margin: 30px 0;
+    padding: 0;
+    color: #247BA0;
+    background-color: #0E2D3B;
+}
+
 header {
-    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px 100px;
+    background: #FF1654;
     width: 100%;
-    background-color: cornflowerblue;
+    box-sizing: border-box;
+    border-bottom: 1px solid #FF4073;
+}
+
+header a, header nav ul li a {
+    color: white;
+    font-size: 20px;
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    list-style: none;
+}
+
+header nav ul li a {
+    height: 25px;
+    line-height: 25px;
+    padding: 0 25px;
+    color: white;
+    text-decoration: none;
+    display: block;
 }
