@@ -64,7 +64,7 @@ class Logs(Resource):
             tokens_db.close()
             logs_db.close()
             return dumps({"id": user_id,
-                          "logs": [{"time": data[1], "light": True if data[2] == 1 else False, "id": data[3]} for data
+                          "logs": [{"time": data[1], "light": params.parse_args()["light"], "id": data[3]} for data
                                    in db],
                           "statusCode": 200})
         return {"error": "Unauthorized, authentication error!", "statusCode": 401}

@@ -1,0 +1,35 @@
+#content {
+    padding-top: 10px;
+    margin-left: 210px;
+}
+
+#content h2, #content h3, #content h4, #content p, #content table {
+    margin: 3px 0;
+    padding: 0;
+    text-align: center;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content table {
+    border: 1px solid #144458;
+}
+
+#content h3, #content h4 {
+    margin-top: 15px;
+}
+
+.light-bg {
+    background-color: #113849;
+    border-radius: 20px;
+} 
+
+.dark-bg {
+    background-color: #0E2D3B;
+    border-radius: 20px;
+}
+
+.dark {
+    color: #5F9FB9;
+}
