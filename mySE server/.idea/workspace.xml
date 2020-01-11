@@ -73,7 +73,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1WARALN3hC2JEBVO6pTHbhh7uh0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -82,7 +86,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Majam" />
   </component>
   <component name="RunManager" selected="Python.testfetch">
     <configuration name="server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -141,12 +145,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:logs" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -167,6 +166,7 @@
       <workItem from="1578597148219" duration="8277000" />
       <workItem from="1578669173377" duration="305000" />
       <workItem from="1578672947604" duration="2218000" />
+      <workItem from="1578676673387" duration="31000" />
     </task>
     <servers />
   </component>
@@ -182,6 +182,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="702" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.106.1680.1010@0.0.1920.1040" timestamp="1578599995416" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1578676702992">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.106.1680.1010@0.0.1920.1040" timestamp="1578676702992" />
     <state width="1876" height="305" key="GridCell.Tab.0.bottom" timestamp="1578673687988">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -206,10 +210,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="676" y="158" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040/1920.106.1680.1010@0.0.1920.1040" timestamp="1578673095520" />
-    <state x="624" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1578672975796">
+    <state x="624" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1578676680502">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="624" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.106.1680.1010@0.0.1920.1040" timestamp="1578672975796" />
+    <state x="624" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.106.1680.1010@0.0.1920.1040" timestamp="1578676680502" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/mySE_server$server.coverage" NAME="server Coverage Results" MODIFIED="1578673283703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
