@@ -34,13 +34,16 @@ class DataBase:
         self.connection.execute(exe, ins_tuple)
         self.connection.commit()
 
-    @property
-    def add_token(self, db, id):
+    def add_token(self, mail, _id=None):
         token = None
         while True:
             token = token_urlsafe(32)
-            if [_token[0] for _token in db.exe(f"SELECT token from tokens WHERE token = '{token}';")]:
-                pass
-            else:
-                break
-        self.connection.execute(f"")
+            if [_token[0] for _token in self.exe(f"SELECT token from tokens WHERE token = '{token}';")]:  pass
+            else: break
+        if _id is None:
+            try: _id = self.exe("SELECT id from tokens ORDER BY id DESC LIMIT 1")[0][0] + 1
+            except IndexError: _id = 1
+        self.connection.execute(f"INSERT INTO tokens VALUES (?, ?, ?)", (_id, token, mail))
+        self.connection.commit()
+        self.close()
+        return token

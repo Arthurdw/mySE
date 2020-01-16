@@ -12,11 +12,13 @@
 # - server errors will occur!                             #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+from util.utils import date
 from util.SQLite import DataBase
+from json import dumps
 
 # DB formats:
 #   Tokens DB:
-#       id int, token string
+#       id int, token string, mail string
 #   Logs DB:
 #       id int, time blob, light int, breach int
 
@@ -28,19 +30,18 @@ print("\b\b\b\b: Done")
 
 # Add the db parameters:
 print("\r", "Setting up DB", end=' ')
-tokens.setup("tokens", "(id int, token string)")
+tokens.setup("tokens", "(id int, token string, mail string)")
 logs.setup("logs", "(id int, time blob, light int, breach int)")
 print("\b\b\b\b: Done")
 
 # Create example token:
 print("\r", "Creating first token...", end=' ')
-# TODO:
-#  Create token here
-token = None
+token = tokens.add_token("email@mail.mail")
 print("\b\b\b\b: " + str(token))
 
 # Create example log:
 print("\r", "Creating first log...", end=' ')
-# TODO:
-#  Create a log here
-print("\b\b\b\b: " + "LOG INFO")
+date = date()
+logs.post_log("INSERT INTO logs VALUES (?, ?, ?, ?)", (1, str(date), 0, 1))
+# Hard coded example:
+print("\b\b\b\b: " + dumps({"time": date, "light": False, "id": 1}))

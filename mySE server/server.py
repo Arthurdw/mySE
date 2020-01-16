@@ -17,7 +17,6 @@
 
 from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
-from json import dumps
 from util import SQLite, utils
 
 
@@ -26,7 +25,24 @@ api = Api(app)
 
 
 class Token(Resource):
-    pass
+    def get(self):
+        params = reqparse.RequestParser()
+        params.add_argument("email")
+        _mail = params.parse_args()["email"]
+        tokens_db = SQLite.DataBase("tokens")
+        if _mail in [mail[0] for mail in tokens_db.exe("SELECT mail FROM tokens;")]:
+            fetch = tokens_db.exe(f"SELECT id, token FROM tokens where mail = '{_mail}'")[0]
+            return {"id": fetch[0], "token": fetch[1], "statusCode": 200}
+        return {"error": "Unauthorized, authentication error!", "statusCode": 401}
+
+    def post(self):
+        params = reqparse.RequestParser()
+        params.add_argument("email")
+        _mail = params.parse_args()["email"]
+        tokens_db = SQLite.DataBase("tokens")
+        if _mail not in [mail[0] for mail in tokens_db.exe("SELECT mail FROM tokens;")]:
+            return {"token": tokens_db.add_token(_mail), "statusCode": 200}
+        return {"error": "Unauthorized, authentication error!", "statusCode": 401}
 
 
 class Logs(Resource):
@@ -39,10 +55,9 @@ class Logs(Resource):
             db = logs_db.exe(f"SELECT * FROM logs WHERE id = {user_id[0]};")
             tokens_db.close()
             logs_db.close()
-            return dumps({"id": user_id[0],
-                          "logs": [{"time": data[1], "light": True if data[2] == 1 else False, "id": data[3]} for data
-                                   in db],
-                          "statusCode": 200})
+            return {"id": user_id[0],
+                    "logs": [{"time": data[1], "light": True if data[2] == 1 else False, "id": data[3]} for data in db],
+                    "statusCode": 200}
         return {"error": "Unauthorized, authentication error!", "statusCode": 401}
 
     def post(self):
@@ -63,14 +78,14 @@ class Logs(Resource):
             db = logs_db.exe(f"SELECT * FROM logs WHERE id = {user_id} AND breach = {count};")
             tokens_db.close()
             logs_db.close()
-            return dumps({"id": user_id,
-                          "logs": [{"time": data[1], "light": params.parse_args()["light"], "id": data[3]} for data
-                                   in db],
-                          "statusCode": 200})
+            return {"id": user_id,
+                    "logs": [{"time": data[1], "light": params.parse_args()["light"], "id": data[3]} for data in db],
+                    "statusCode": 200}
         return {"error": "Unauthorized, authentication error!", "statusCode": 401}
 
 
 api.add_resource(Logs, "/logs/")
+api.add_resource(Token, "/token/")
 
 if __name__ == "__main__":
     app.run(debug=True)
