@@ -3,7 +3,7 @@
     margin-left: 210px;
 }
 
-#content h2, #content h3, #content h4, #content p, #content table {
+#content h2, #content h3, #content h4, #content h5, #content p, #content table {
     margin: 3px 0;
     padding: 0;
     text-align: center;

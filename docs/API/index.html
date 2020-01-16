@@ -45,12 +45,14 @@
     <div id="content">
         <h2>API documentation</h2>
         <h3>Authorization</h3>
-        <p>The API requires a <span class="dark">Authorization</span> in the header with a unique token.
-            Token generation is WIP. Having no authorization token will result in a <span class="dark">401
-                Unauthorized</span> error response!</p>
+        <p>The API requires a <span class="dark">Authorization</span> in the header with a unique token. <br>
+            Having no authorization token will result in a <span class="dark">401 Unauthorized</span> error response!
+        </p>
         <h3><span class="dark">/logs/</span></h3>
         <p>Retrieves all logs linked to your auth token.</p>
-        <h4>Get request:</h4>
+        <h4><span class="dark">GET</span> request:</h4>
+        <h5>Fetches all linked <span class="dark">log</span> objects. <br>
+            Requires an <span class="dark">Authorization</span> token in the header.</h5>
         <table class="light-bg">
             <tr>
                 <th>Value</th>
@@ -141,9 +143,10 @@
                 <td>The microsecond of the log.</td>
             </tr>
         </table>
-        <h4>Post request:</h4>
-        <h3><span class="dark">time object</span></h3>
-        <p>A basic time object.</p>
+        <h4><span class="dark">POST</span> request:</h4>
+        <h5>Adds a <span class="dark">log</span> object to the DB. <br>
+            Requires an <span class="dark">Authorization</span> token in the header.</h5>
+        <p>Input:</p>
         <table class="light-bg">
             <tr>
                 <th>Value</th>
@@ -154,6 +157,90 @@
                 <td>light</td>
                 <td>boolean</td>
                 <td>If the light was on or off in the room.</td>
+            </tr>
+        </table>
+        <p>Returns:</p>
+        <table class="light-bg">
+            <tr>
+                <th>Value</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>id</td>
+                <td>integer</td>
+                <td>The auth token its linked client id.</td>
+            </tr>
+            <tr>
+                <td>statusCode</td>
+                <td>integer</td>
+                <td>The status code for the request. Eg: 201, 401</td>
+            </tr>
+            <tr>
+                <td>logs</td>
+                <td>object</td>
+                <td></td>
+            </tr>
+        </table>
+        <h3><span class="dark">/token/</span></h3>
+        <p>Create and retrieve your auth token with your email.</p>
+        <h4><span class="dark">GET</span> request:</h4>
+        <h5>Fetches the auth code that is linked with the given <span class="dark">mail</span>. <br>
+            The get request requires a <span class="dark">mail</span> attribute with a valid email.</h5>
+        <table class="light-bg">
+            <tr>
+                <th>Value</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>id</td>
+                <td>integer</td>
+                <td>The auth token its linked client id.</td>
+            </tr>
+            <tr>
+                <th>token</th>
+                <th>string</th>
+                <th>The unique auth code!</th>
+            </tr>
+            <tr>
+                <td>statusCode</td>
+                <td>integer</td>
+                <td>The status code for the request. Eg: 201, 401</td>
+            </tr>
+        </table>
+        <h4><span class="dark">POST</span> request:</h4>
+        <h5>Creates a unique auth token!<br>
+            The POST request requires a <span class="dark">mail</span> attribute with a valid email.</h5>
+        <p>Input:</p>
+        <table class="light-bg">
+            <tr>
+                <th>Value</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <th>mail</th>
+                <th>string</th>
+                <th>Your email!</th>
+            </tr>
+        </table>
+        <p>Returned value:</p>
+        <table class="light-bg">
+            <tr>
+                <th>Value</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <th>token</th>
+                <th>string</th>
+                <th>The unique auth code!</th>
+            </tr>
+            <tr>
+                <td>statusCode</td>
+                <td>integer</td>
+                <td>The status code for the request. Eg: 201, 401</td>
             </tr>
         </table>
     </div>
