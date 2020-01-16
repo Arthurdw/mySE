@@ -25,8 +25,8 @@ app = Flask(__name__)
 api = Api(app)
 
 
-# class Token(Resource):
-#     def post(self):
+class Token(Resource):
+    pass
 
 
 class Logs(Resource):

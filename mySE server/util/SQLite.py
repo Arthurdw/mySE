@@ -11,6 +11,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 import sqlite3
+from secrets import token_urlsafe
 
 
 class DataBase:
@@ -32,3 +33,14 @@ class DataBase:
     def post_log(self, exe, ins_tuple):
         self.connection.execute(exe, ins_tuple)
         self.connection.commit()
+
+    @property
+    def add_token(self, db, id):
+        token = None
+        while True:
+            token = token_urlsafe(32)
+            if [_token[0] for _token in db.exe(f"SELECT token from tokens WHERE token = '{token}';")]:
+                pass
+            else:
+                break
+        self.connection.execute(f"")
