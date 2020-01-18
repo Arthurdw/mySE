@@ -6,25 +6,29 @@ import error, logs
 def get_token(url: str, email: str):
     """Forgot your token?
     Fetch it using this function."""
-    fetch = get(url + 'token/', data={'mail': email})
-    if fetch.status_code == 401: raise error.UnauthorizedError("An invalid mail was given on `get_token`!")
-    else: return loads(fetch.text)["token"]
+    fetch = get(url + 'token/', data={'email': email})
+    if fetch.status_code == 401 or loads(fetch.text)["statusCode"] == 401:
+        raise error.UnauthorizedError("An invalid mail was given on `get_token`!")
+    else:
+        return loads(fetch.text)["token"]
 
 
 def gen_token(url: str, email: str):
     """Generate your unique auth token!"""
-    fetch = post(url + 'token/', data={'mail': email})
-    if fetch.status_code == 401: raise error.UnauthorizedError("An invalid mail was given on `gen_token`!")
-    print(fetch.text)
-    else: return loads(fetch.text)["token"]
+    fetch = post(url + 'token/', data={'email': email})
+    if fetch.status_code == 401 or loads(fetch.text)["statusCode"] == 401:
+        raise error.UnauthorizedError("An invalid or used mail was given on `gen_token`!")
+    else:
+        return loads(fetch.text)["token"]
 
 
 class Client:
     def __init__(self, url, token):
         self.url = url
-        self.token = None
+        self.token = token
         self.selected = get(url + "logs/", headers={'Authorization': token})
-        if self.selected.status_code == 401: raise error.UnauthorizedError("An invalid token was given on setup!")
+        if self.selected.status_code == 401 or loads(self.selected.text)["statusCode"] == 401:
+            raise error.UnauthorizedError("An invalid token was given on setup!")
 
     @property
     def id(self):

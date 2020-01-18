@@ -1,3 +1,4 @@
+from json import loads
 from datetime import datetime
 
 
@@ -18,5 +19,5 @@ class Log:
     @property
     def time(self):
         """Returns the time in a datetime object."""
-        t = self.log["time"]
+        t = loads(str(self.log["time"]).replace("'", '"'))
         return datetime(t["year"], t["month"], t["day"], t["hour"], t["minute"], t["second"], t["microsecond"])

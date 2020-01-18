@@ -15,6 +15,7 @@
 #    - token/account generation. (WIP)                    #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+from json import loads
 from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
 from util import SQLite, utils
@@ -68,7 +69,7 @@ class Logs(Resource):
             params = reqparse.RequestParser()
             params.add_argument("light")
             user_id = tokens_db.exe(f"SELECT id FROM tokens where token = '{user_token}'")[0][0]
-            light = 1 if params.parse_args()["light"] is True else 0
+            light = 1 if len(params.parse_args()["light"]) == 4 else 0
             count = 1
             try:
                 count = logs_db.exe("SELECT breach from logs ORDER BY breach DESC LIMIT 1")[0][0] + 1
