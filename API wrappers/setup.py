@@ -6,7 +6,7 @@ setup(
   license='MIT',
   description='API wrapper for the mySE API.',
   author='Arthurdw',
-  author_email='mail.@arthurdw@gmail.com',
+  author_email='mail.arthurdw@gmail.com',
   url='https://github.com/Arthurdw/mySE',
   download_url='https://github.com/Arthurdw/mySE/tree/master/API%20wrappers/python.tar.gz',    # I explain this later on
   keywords=['mySE'],

@@ -13,7 +13,8 @@ This file contains the CSS for the content of the documentation website.
 
 #content {
     padding-top: 10px;
-    margin-left: 210px;
+    margin-left: 215px;
+    margin-right: 10px;
 }
 
 #content h2, #content h3, #content h4, #content h5, #content p, #content table {
@@ -45,4 +46,8 @@ This file contains the CSS for the content of the documentation website.
 
 .dark {
     color: #5F9FB9;
+}
+
+.code-block {
+    border-radius: 10px;
 }
