@@ -3,7 +3,6 @@ for (var i = 0; i < titles.length; ++i) {
     var selectedElement = titles[i];
     selectedElement.href = window.location.href + '#' + selectedElement.id;
     selectedElement.addEventListener("mouseover", function () { showURL(selectedElement); });
-    selectedElement.addEventListener("onclick", function () { copyURL(selectedElement); });
     selectedElement.addEventListener("mouseout", function () { clearURL(selectedElement); });
 }
 
