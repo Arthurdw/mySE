@@ -59,12 +59,19 @@ This page contains the Python API wrapper documentation.
     </div>
     <div id="content">
         <h2>Python API Wrapper</h2>
-        <h3>A basic example:</h3>
-        <p>Example code, this code <span class="dark">creates</span> and/or <span class="dark">fetches</span> the token from the API.<br>
-        Then it creates a <span class="dark">Client Object</span> and retrieves the <span class="dark">id</span>.</p>
+        <h3 id="install">Install guide:</h3>
+        <p>To install the <span class="dark">LTS mySE</span> module you can use <span class="dark">PIP</span>!</p>
+        <pre class="code-block">
+            <code class="language-python">>>> pip install mySE</code>
+        </pre>
+        <h3 id="example">A basic example:</h3>
+        <p>Example code, this code <span class="dark">creates</span> and/or <span class="dark">fetches</span> the token
+            from the API.<br>
+            Then it creates a <span class="dark">Client Object</span> and retrieves the <span class="dark">id</span>.
+        </p>
         <pre class="code-block">
             <code class="language-python">
-                import mySE
+                from mySE import mySE
 
                 local_url, mail, token = "http://127.0.0.1:5000/", "mail@mail.mail", None
 
@@ -77,8 +84,32 @@ This page contains the Python API wrapper documentation.
                 print(f"Client ID: {client.id}")
             </code>
         </pre>
+        <h2>API reference:</h2>
+        <div id="client-group">
+            <h3><a class="title" id="Client"><span class="path">mySE.mySE.</span><span class="dark">Client</span>(url, token) </a></h3>
+            <p>Represents a <span class="dark">mySE Client</span>, this is the main object for this API wrapper.<br>
+                This is object is used to interact with the <span class="dark">mySE API</span>.</p>
+            <h4>Parameters:</h4>
+            <div class="params">
+                <ul>
+                    <li><span class="dark">url</span> (Required) - <br>
+                        The <span class="dark">mySE server</span> link. Eg. use "<code>http://127.0.0.1:5000/</code>" if
+                        you're running the server locally on port <code>5000</code>.</li>
+                    <li><span class="dark">token</span> (Required) - <br>
+                        Your unique mySE token. If you don't have a token yet generate it using <a
+                            href="#gen_token">gen_token</a>.</li>
+                </ul>
+            </div>
+            <h4>Raises:</h4>
+            <div class="params">
+                <ul>
+                    <li><span class="dark"><a href="#errors.UnauthorizedError">UnauthorizedError</a></span> – The wrong credentials are passed.</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="../../js/prism.js"></script>
+    <script type="text/javascript" src="../../js/content.js"></script>
 </body>
 
 </html>
