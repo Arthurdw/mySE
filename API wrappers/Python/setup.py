@@ -2,13 +2,13 @@ from distutils.core import setup
 setup(
   name='mySE',
   packages=['mySE'],
-  version='0.1',
+  version='0.2',
   license='MIT',
   description='API wrapper for the mySE API.',
   author='Arthurdw',
   author_email='mail.arthurdw@gmail.com',
   url='https://github.com/Arthurdw/mySE',
-  download_url='https://github.com/Arthurdw/mySE/tree/master/API%20wrappers/python.tar.gz',    # I explain this later on
+  download_url='https://github.com/Arthurdw/mySE/tree/master/API%20wrappers/Python/v0.2.tar.gz',
   keywords=['mySE'],
   install_requires=['requests'],
   classifiers=[
