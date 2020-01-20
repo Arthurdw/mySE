@@ -12,7 +12,7 @@
 
 from requests import get, post
 from json import loads
-import error, logs
+from mySE import error, logs
 
 
 def get_token(url: str, email: str):
