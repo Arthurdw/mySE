@@ -1,4 +1,4 @@
-import mySE
+from mySE import mySE
 from time import sleep
 
 local_url, mail = "http://127.0.0.1:5000/", "mail@mail.mail"
