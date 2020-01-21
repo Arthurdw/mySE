@@ -10,6 +10,11 @@ Project (mySE) started on 09/01/2020!
 This file contains the CSS for the content of the documentation website.
 */
 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0E2D3B;
+}
+
 h3, h3 a {
     font-size: 28px;
 }
@@ -53,6 +58,22 @@ h4 {
 
 #content h3, #content h4 {
     margin-top: 15px;
+}
+
+.reference {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sub-ref {
+    padding-top: 5px;
+    border-radius: 10px;
+    background-color: rgb(12, 51, 70);
+}
+
+.full-cover {
+    border-radius: 10px;
+    background-color: rgb(18, 59, 80);
 }
 
 .title {
