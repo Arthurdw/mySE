@@ -11,6 +11,7 @@ The guiding menu for the documentation website.
 */
 
 #menu {
+    position: fixed;
     float: left;
     width: 200px;
     background-color: #F3FFBD;

@@ -60,6 +60,28 @@ h4 {
     margin-top: 15px;
 }
 
+.sub-sect {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    margin-right: 40px;
+    border-radius: 10px;
+    background-color: rgb(12, 51, 70);
+}
+
+.section {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    margin-right: 40px;
+    border-radius: 10px;
+    background-color: #0E2D3B;
+}
+
 .reference {
     padding-top: 10px;
     padding-bottom: 10px;

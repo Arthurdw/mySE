@@ -61,23 +61,27 @@ This page contains the Python API wrapper documentation.
     <div id="content">
         <h2>Python API Wrapper</h2>
         <div class="full-cover">
-        <h3><a class="title install" onmouseover="showURL(this);" id="install"><span>Install guide:</span></a></h3>
-        <div class="sub-ref">
-        <p>To install the <span class="dark">LTS mySE</span> module you can use <span class="dark">PIP</span>!</p>
-        <pre class="code-block">
+            <h3><a class="title install" onmouseover="showURL(this);" id="install"><span>Install guide:</span></a></h3>
+            <div class="sub-ref">
+                <p>To install the <span class="dark">LTS mySE</span> module you can use <span class="dark">PIP</span>!
+                </p>
+                <pre class="code-block">
             <code class="language-python">>>> pip install mySE</code>
         </pre>
-        </div>
+            </div>
         </div>
         <div class="full-cover">
-        <h3><a class="title example" onmouseover="showURL(this);" id="basic.example"><span>A basic example:</span></a>
-        </h3>
-        <div class="sub-ref">
-        <p>Example code, this code <span class="dark">creates</span> and/or <span class="dark">fetches</span> the token
-            from the API.<br>
-            Then it creates a <span class="dark">Client Object</span> and retrieves the <span class="dark">id</span>.
-        </p>
-        <pre class="code-block">
+            <h3><a class="title example" onmouseover="showURL(this);" id="basic.example"><span>A basic
+                        example:</span></a>
+            </h3>
+            <div class="sub-ref">
+                <p>Example code, this code <span class="dark">creates</span> and/or <span class="dark">fetches</span>
+                    the token
+                    from the API.<br>
+                    Then it creates a <span class="dark">Client Object</span> and retrieves the <span
+                        class="dark">id</span>.
+                </p>
+                <pre class="code-block">
             <code class="language-python">
                 from mySE import mySE
 
@@ -92,49 +96,52 @@ This page contains the Python API wrapper documentation.
                 print(f"Client ID: {client.id}")
             </code>
         </pre>
-        </div>
+            </div>
         </div>
         <div class="full-cover">
             <h2>API reference:</h2>
             <div class="sub-ref reference">
-                <h3><a class="title" onmouseover="showURL(this);" id="get_token"><span class="path">mySE.</span><span
-                            class="dark">get_token</span>(email)</a></h3>
-                <p>Retrieves a valid <a href="#Client">Client</a> token using a email.</p>
-                <h4>Parameter:</h4>
-                <div class="params">
-                    <ul>
-                        <li><span class="dark">email</span> (Required: string) -
-                            Your email address!</li>
-                    </ul>
+                <div class="section">
+                    <h3><a class="title" onmouseover="showURL(this);" id="get_token"><span
+                                class="path">mySE.</span><span class="dark">get_token</span>(email)</a></h3>
+                    <p>Retrieves a valid <a href="#Client">Client</a> token using a email.</p>
+                    <h4>Parameter:</h4>
+                    <div class="params">
+                        <ul>
+                            <li><span class="dark">email</span> (Required: string) -
+                                Your email address!</li>
+                        </ul>
+                    </div>
+                    <h4>Raises:</h4>
+                    <div class="params">
+                        <ul>
+                            <li><span class="dark"><a href="#errors.UnauthorizedError">UnauthorizedError</a></span> – No
+                                token
+                                exists with this email, use <a href="#gen_token">gen_token</a> instead.</li>
+                        </ul>
+                    </div>
                 </div>
-                <h4>Raises:</h4>
-                <div class="params">
-                    <ul>
-                        <li><span class="dark"><a href="#errors.UnauthorizedError">UnauthorizedError</a></span> – No
-                            token
-                            exists with this email, use <a href="#gen_token">gen_token</a> instead.</li>
-                    </ul>
+                <div class="section">
+                    <h3><a class="title" onmouseover="showURL(this);" id="get_token"><span
+                                class="path">mySE.</span><span class="dark">gen_token</span>(email)</a></h3>
+                    <p>Generates a valid <a href="#Client">Client</a> token using a email.</p>
+                    <h4>Parameter:</h4>
+                    <div class="params">
+                        <ul>
+                            <li><span class="dark">email</span> (Required: string) -
+                                Your email address!</li>
+                        </ul>
+                    </div>
+                    <h4>Raises:</h4>
+                    <div class="params">
+                        <ul>
+                            <li><span class="dark"><a href="#errors.UnauthorizedError">UnauthorizedError</a></span> – A
+                                token
+                                already exists using this email, use <a href="#get_token">get_token</a> instead.</li>
+                        </ul>
+                    </div>
                 </div>
-                <h3><a class="title" onmouseover="showURL(this);" id="get_token"><span class="path">mySE.</span><span
-                            class="dark">gen_token</span>(email)</a></h3>
-                <p>Generates a valid <a href="#Client">Client</a> token using a email.</p>
-                <h4>Parameter:</h4>
-                <div class="params">
-                    <ul>
-                        <li><span class="dark">email</span> (Required: string) -
-                            Your email address!</li>
-                    </ul>
-                </div>
-                <h4>Raises:</h4>
-                <div class="params">
-                    <ul>
-                        <li><span class="dark"><a href="#errors.UnauthorizedError">UnauthorizedError</a></span> – A
-                            token
-                            already exists using this email, use <a href="#get_token">get_token</a> instead.</li>
-                    </ul>
-                </div>
-                <br>
-                <div id="client-group">
+                <div id="client-group" class="section">
                     <h3><a class="title" onmouseover="showURL(this);" id="Client"><span
                                 class="path">mySE.mySE.</span><span class="dark">Client</span>(url, token)</a></h3>
                     <p>Represents a <span class="dark">mySE Client</span>, this is the main object for this API wrapper.
@@ -163,23 +170,30 @@ This page contains the Python API wrapper documentation.
                                 credentials are passed.</li>
                         </ul>
                     </div>
-                    <h3><a class="title" onmouseover="showURL(this);" id="Client.id"><span
-                                class="path">Client.</span><span class="dark">id</span></a></h3>
-                    <p>The current <a href="#Client">Client</a> its user ID.<br>
-                        Type: <span class="dark">Property</span><br>
-                        Returns: <span class="dark">integer</span></p>
-                    <h3><a class="title" onmouseover="showURL(this);" id="Client.logs"><span
-                                class="path">Client.</span><span class="dark">logs</span></a></h3>
-                    <p>Fetches all <a href="#Client">Client</a> linked log objects.<br>
-                        Type: <span class="dark">Property</span><br>
-                        Returns: <span class="dark"><a href="#Log">mySE Log object</a></span></p>
-                    <h3><a class="title" onmouseover="showURL(this);" id="Client.add_log"><span
-                                class="path">Client.</span><span class="dark">add_log</span>(light)</a></h3>
-                    <p>Adds a log under the current <a href="#Client">Client</a> its id.<br>
-                        This also executes/returns a <a href="#Client.logs"><span class="path">Client.</span><span
-                                class="dark">logs</span></a></a>.<br>
-                        Type: <span class="dark">Function</span><br>
-                        Returns: <span class="dark"><a href="#Log">mySE Log object</a></span></p>
+                    <div class="sub-sect">
+                        <h3><a class="title" onmouseover="showURL(this);" id="Client.id"><span
+                                    class="path">Client.</span><span class="dark">id</span></a></h3>
+                        <p>The current <a href="#Client">Client</a> its user ID.<br>
+                            Type: <span class="dark">Property</span><br>
+                            Returns: <span class="dark">integer</span></p>
+                    </div>
+                    <div class="sub-sect">
+                        <h3><a class="title" onmouseover="showURL(this);" id="Client.logs"><span
+                                    class="path">Client.</span><span class="dark">logs</span></a></h3>
+                        <p>Fetches all <a href="#Client">Client</a> linked log objects.<br>
+                            Type: <span class="dark">Property</span><br>
+                            Returns: <span class="dark"><a href="#Log">mySE Log object</a></span></p>
+                    </div>
+
+                    <div class="sub-sect">
+                        <h3><a class="title" onmouseover="showURL(this);" id="Client.add_log"><span
+                                    class="path">Client.</span><span class="dark">add_log</span>(light)</a></h3>
+                        <p>Adds a log under the current <a href="#Client">Client</a> its id.<br>
+                            This also executes/returns a <a href="#Client.logs"><span class="path">Client.</span><span
+                                    class="dark">logs</span></a></a>.<br>
+                            Type: <span class="dark">Function</span><br>
+                            Returns: <span class="dark"><a href="#Log">mySE Log object</a></span></p>
+                    </div>
                     <h4>Parameter:</h4>
                     <div class="params">
                         <ul>
@@ -188,36 +202,44 @@ This page contains the Python API wrapper documentation.
                         </ul>
                     </div>
                 </div>
-                <br>
-                <div id="log-group">
+                <div id="log-group" class="section">
                     <h3><a class="title" onmouseover="showURL(this);" id="Log"><span class="path">logs.</span><span
                                 class="dark">Log</span></a></h3>
                     <p>The base log object used in <a href="#Clien.logs">logs</a> & <a
                             href="#Client.add_log">add_log</a>.
                     </p>
-                    <h3><a class="title" onmouseover="showURL(this);" id="Log.id"><span class="path">Log.</span><span
-                                class="dark">id</span></a></h3>
-                    <p>The selected <a href="#Log">Log</a> its unique ID.<br>
-                        Type: <span class="dark">Property</span><br>
-                        Returns: <span class="dark">integer</span></p>
-                    <h3><a class="title" onmouseover="showURL(this);" id="Log.light"><span class="path">Log.</span><span
-                                class="dark">light</span></a></h3>
-                    <p>Was the light on when this <a href="#Log">Log</a> got recorded.<br>
-                        Type: <span class="dark">Property</span><br>
-                        Returns: <span class="dark">boolean</span></p>
-                    <h3><a class="title" onmouseover="showURL(this);" id="Log.time"><span class="path">Log.</span><span
-                                class="dark">time</span></a></h3>
-                    <p>The time when this <a href="#Log">Log</a> got recorded. (It can be inaccurate from around
-                        4-200s)<br>
-                        Type: <span class="dark">Property</span><br>
-                        Returns: <span class="dark"><a
-                                href="https://docs.python.org/2/library/datetime.html#datetime-objects">DateTime
-                                object</a></span></p>
+                    <div class="sub-sect">
+                        <h3><a class="title" onmouseover="showURL(this);" id="Log.id"><span
+                                    class="path">Log.</span><span class="dark">id</span></a></h3>
+                        <p>The selected <a href="#Log">Log</a> its unique ID.<br>
+                            Type: <span class="dark">Property</span><br>
+                            Returns: <span class="dark">integer</span></p>
+                    </div>
+
+                    <div class="sub-sect">
+                        <h3><a class="title" onmouseover="showURL(this);" id="Log.light"><span
+                                    class="path">Log.</span><span class="dark">light</span></a></h3>
+                        <p>Was the light on when this <a href="#Log">Log</a> got recorded.<br>
+                            Type: <span class="dark">Property</span><br>
+                            Returns: <span class="dark">boolean</span></p>
+                    </div>
+
+                    <div class="sub-sect">
+                        <h3><a class="title" onmouseover="showURL(this);" id="Log.time"><span
+                                    class="path">Log.</span><span class="dark">time</span></a></h3>
+                        <p>The time when this <a href="#Log">Log</a> got recorded. (It can be inaccurate from around
+                            4-200s)<br>
+                            Type: <span class="dark">Property</span><br>
+                            Returns: <span class="dark"><a
+                                    href="https://docs.python.org/2/library/datetime.html#datetime-objects">DateTime
+                                    object</a></span></p>
+                    </div>
                 </div>
-                <br>
-                <h3><a class="title" onmouseover="showURL(this);" id="errors.UnauthorizedError"><span
-                            class="path">error.</span><span class="dark">UnauthorizedError</span></a></h3>
-                <p>Exception that occurs when an invalid token/email has been given.</p>
+                <div class="section">
+                    <h3><a class="title" onmouseover="showURL(this);" id="errors.UnauthorizedError"><span
+                                class="path">error.</span><span class="dark">UnauthorizedError</span></a></h3>
+                    <p>Exception that occurs when an invalid token/email has been given.</p>
+                </div>
             </div>
         </div>
     </div>
