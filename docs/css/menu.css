@@ -20,6 +20,7 @@ The guiding menu for the documentation website.
 
 #menu h2 {
     text-align: center;
+    font-size: 25px;
 }
 
 .selected {
@@ -30,6 +31,7 @@ The guiding menu for the documentation website.
     margin: 0;
     padding: 10px 0 10px 10px;
     display: block;
+    font-size: 20px;
     -webkit-transition: background-color 0.3s;
     transition: background-color 0.3s ease-in-out;
 }

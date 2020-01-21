@@ -10,13 +10,8 @@ Project (mySE) started on 09/01/2020!
 This file contains the CSS for the content of the documentation website.
 */
 
-.title {
-    color: #247BA0;
-}
-
-.title:hover {
-    color: rgb(44, 139, 180);
-    text-decoration: underline;
+h3, h3 a {
+    font-size: 27px;
 }
 
 a {
@@ -29,6 +24,13 @@ a:hover {
     text-decoration: underline;
 }
 
+h2 {
+    font-size: 32px;
+}
+
+h4 {
+    font-size: 20px;
+}
 
 #content {
     padding-top: 10px;
@@ -51,6 +53,15 @@ a:hover {
 
 #content h3, #content h4 {
     margin-top: 15px;
+}
+
+.title {
+    color: #247BA0;
+}
+
+.title:hover {
+    color: rgb(44, 139, 180);
+    text-decoration: underline;
 }
 
 .params {
