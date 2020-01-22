@@ -12,6 +12,7 @@
 # - server errors will occur!                             #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+from os import system
 from util.utils import date
 from util.SQLite import DataBase
 from json import dumps
@@ -45,3 +46,8 @@ date = date()
 logs.post_log("INSERT INTO logs VALUES (?, ?, ?, ?)", (1, str(date), 0, 1))
 # Hard coded example:
 print("\b\b\b\b: " + dumps({"time": date, "light": False, "id": 1}))
+
+# Install dependecies.
+print("Installing depencencies.")
+system("python -m pip install -r requirements.txt")
+print("Succesfully installed the server dependencies.")
