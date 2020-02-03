@@ -10,9 +10,11 @@
 // A basic example file to showcase the mySE.js wrapper.    //
 // // // // // // // // // // // // // // // // // // // // //
 
-import * as mySE from '../mySE/meSE.js';
+const mySE = require('../mySE/meSE');
 
 const local_url = "http://127.0.0.1:5000/", mail = "mail@mail.mail";
 
-const token = mySE.gen_token(local_url, mail);
-console.log(token);
+console.log("Retrieving token...");
+mySE.gen_token(local_url, mail);
+const token = mySE.get_token(local_url, mail);
+console.log("Retrieved token:\r\n" + token);

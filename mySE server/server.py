@@ -29,6 +29,7 @@ class Token(Resource):
     def get(self):
         params = reqparse.RequestParser()
         params.add_argument("email")
+        print(f"Parameters: {params.parse_args()}")
         _mail = params.parse_args()["email"]
         tokens_db = SQLite.DataBase("tokens")
         if _mail in [mail[0] for mail in tokens_db.exe("SELECT mail FROM tokens;")]:

@@ -10,9 +10,12 @@
 // This file will contain all mySE errors.                  //
 // // // // // // // // // // // // // // // // // // // // //
 
+module.exports = UnauthorizedError;
+
 class UnauthorizedError extends Error {
     constructor(message) {
         super(message);
-        this.name = "UnauthorizedError: ";
+        this.name = this.constructor.name;
     }
 }
+ 
