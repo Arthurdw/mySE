@@ -19,24 +19,35 @@ const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 module.exports = {
     gen_token: function(url, email) {
         const req = new XMLHttpRequest();
+        req.open("POST", url + "token/add/", true);
+        req.setRequestHeader('Content-Type', 'application/json');
+        req.send(JSON.stringify({email: email}));
+        req.onload = function() { fetchData(req, "token") }
+    },
+    get_token: function(url, _email) {
+        const req = new XMLHttpRequest();
         req.open("POST", url + "token/", true);
         req.setRequestHeader('Content-Type', 'application/json');
-        req.send(JSON.stringify({email: email}));
-    },
-    get_token: function(url, email) {
-        const req = new XMLHttpRequest();
-        req.open("GET", url + "token/", true);
-        req.setRequestHeader('Content-Type', 'application/json');
-        req.send(JSON.stringify({email: email}));
-        req.onload = function() {
-            const reqValue = JSON.parse(req.responseText);
-            console.log(reqValue);
-            console.log(reqValue.message);
-            if (reqValue["statusCode"] === 401) throw new UnauthorizedError(reqValue["error"]);
-            return reqValue["token"];
-        }
+        req.send(JSON.stringify({'email': _email}));
+        req.onload = function() { fetchData(req, "token") }
     }
 };
+
+
+function fetchData(request, data) {
+    const reqValue = JSON.parse(request.responseText);
+    if (request.status === 400) throw new BadRequest(reqValue["error"]);
+    if (reqValue.statusCode === 401) throw new UnauthorizedError(reqValue["error"]);
+    return reqValue[data];
+}
+
+class BadRequest extends Error {
+    constructor(message) {
+        super(message);
+        this.name = this.constructor.name;
+        this.message = message;
+    }
+}
 
 class UnauthorizedError extends Error {
     constructor(message) {
