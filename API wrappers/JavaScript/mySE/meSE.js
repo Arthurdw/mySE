@@ -16,28 +16,11 @@
 // const errors = require("./error");
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-module.exports = {
-    gen_token: function(url, email) {
-        const req = new XMLHttpRequest();
-        req.open("POST", url + "token/add/", true);
-        req.setRequestHeader('Content-Type', 'application/json');
-        req.send(JSON.stringify({email: email}));
-        req.onload = function() { fetchData(req, "token") }
-    },
-    get_token: function(url, _email) {
-        const req = new XMLHttpRequest();
-        req.open("POST", url + "token/", true);
-        req.setRequestHeader('Content-Type', 'application/json');
-        req.send(JSON.stringify({'email': _email}));
-        req.onload = function() { fetchData(req, "token") }
-    }
-};
-
-
 function fetchData(request, data) {
     const reqValue = JSON.parse(request.responseText);
     if (request.status === 400) throw new BadRequest(reqValue["error"]);
-    if (reqValue.statusCode === 401) throw new UnauthorizedError(reqValue["error"]);
+    else if (reqValue.statusCode === 401) throw new UnauthorizedError(reqValue["error"]);
+    console.log(reqValue[data]);
     return reqValue[data];
 }
 
@@ -63,3 +46,26 @@ class Client {
         this.token = token;
     }
 }
+
+module.exports = {
+    // Exporting Modules:
+    gen_token: function(url, email) {
+        const req = new XMLHttpRequest();
+        req.open("POST", url + "token/add/", true);
+        req.setRequestHeader('Content-Type', 'application/json');
+        req.send(JSON.stringify({email: email}));
+        req.onload = function() { return fetchData(req, "token"); }
+    },
+    get_token: async function(url, _email) {
+        const req = new XMLHttpRequest();
+        req.open("POST", url + "token/", true);
+        req.setRequestHeader('Content-Type', 'application/json');
+        req.send(JSON.stringify({'email': _email}));
+        req.onload = async function () {
+            return await fetchData(req, "token");
+        }
+    },
+    // Exporting Errors:
+    UnauthorizedError: UnauthorizedError,
+    BadRequest: BadRequest
+};

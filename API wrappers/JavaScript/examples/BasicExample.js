@@ -10,15 +10,22 @@
 // A basic example file to showcase the mySE.js wrapper.    //
 // // // // // // // // // // // // // // // // // // // // //
 
+// TODO:
+//  Make get token function async.
+
 const mySE = require('../mySE/meSE');
 
 const local_url = "http://127.0.0.1:5000/", mail = "mail@mail.mail";
 
 console.log("Retrieving token...");
-try {
-    mySE.gen_token(local_url, mail);
-} catch (e) {
-    if (!(e instanceof mySE.UnauthorizedError)) throw e
+// try {
+//     mySE.gen_token(local_url, mail);
+// } catch (e) {
+//     if (!(e instanceof mySE.UnauthorizedError)) throw e
+// }
+let token;
+async function fetch() {
+    token = await mySE.get_token(local_url, mail)
 }
-const token = mySE.get_token(local_url, mail);
+fetch().then();
 console.log("Retrieved token:\r\n" + token);
