@@ -25,11 +25,11 @@ app = Flask(__name__)
 api = Api(app)
 
 
-class Token(Resource):
-    def get(self):
+class TokenGet(Resource):
+    def post(self):
         params = reqparse.RequestParser()
         params.add_argument("email")
-        print(f"Parameters: {params.parse_args()}")
+        print(params.parse_args())
         _mail = params.parse_args()["email"]
         tokens_db = SQLite.DataBase("tokens")
         if _mail in [mail[0] for mail in tokens_db.exe("SELECT mail FROM tokens;")]:
@@ -37,6 +37,8 @@ class Token(Resource):
             return {"id": fetch[0], "token": fetch[1], "statusCode": 200}
         return {"error": "Unauthorized, authentication error!", "statusCode": 401}
 
+
+class TokenAdd(Resource):
     def post(self):
         params = reqparse.RequestParser()
         params.add_argument("email")
@@ -47,8 +49,8 @@ class Token(Resource):
         return {"error": "Unauthorized, authentication error!", "statusCode": 401}
 
 
-class Logs(Resource):
-    def get(self):
+class LogsGet(Resource):
+    def post(self):
         user_token = request.headers.get('Authorization')
         tokens_db = SQLite.DataBase("tokens")
         if user_token in [token[0] for token in tokens_db.exe("SELECT token FROM tokens;")]:
@@ -62,6 +64,8 @@ class Logs(Resource):
                     "statusCode": 200}
         return {"error": "Unauthorized, authentication error!", "statusCode": 401}
 
+
+class LogsAdd(Resource):
     def post(self):
         user_token = request.headers.get('Authorization')
         tokens_db = SQLite.DataBase("tokens")
@@ -86,8 +90,10 @@ class Logs(Resource):
         return {"error": "Unauthorized, authentication error!", "statusCode": 401}
 
 
-api.add_resource(Logs, "/logs/")
-api.add_resource(Token, "/token/")
+api.add_resource(LogsAdd, "/logs/add/")
+api.add_resource(LogsGet, "/logs/")
+api.add_resource(TokenAdd, "/token/add/")
+api.add_resource(TokenGet, "/token/")
 
 if __name__ == "__main__":
     app.run(debug=True)
