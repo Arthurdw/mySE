@@ -24,8 +24,5 @@ console.log("Retrieving token...");
 //     if (!(e instanceof mySE.UnauthorizedError)) throw e
 // }
 let token;
-async function fetch() {
-    token = await mySE.get_token(local_url, mail)
-}
-fetch().then();
+mySE.get_token(local_url, mail).then((item) => token = item);
 console.log("Retrieved token:\r\n" + token);

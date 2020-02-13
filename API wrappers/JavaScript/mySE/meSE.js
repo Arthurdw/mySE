@@ -16,7 +16,7 @@
 // const errors = require("./error");
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-function fetchData(request, data) {
+async function fetchData(request, data) {
     const reqValue = JSON.parse(request.responseText);
     if (request.status === 400) throw new BadRequest(reqValue["error"]);
     else if (reqValue.statusCode === 401) throw new UnauthorizedError(reqValue["error"]);

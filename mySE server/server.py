@@ -20,6 +20,9 @@ from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
 from util import SQLite, utils
 
+# TODO:
+#   Add a server token to the token generation protocol
+
 
 app = Flask(__name__)
 api = Api(app)
