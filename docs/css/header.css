@@ -1,58 +1,115 @@
-/*
-mySE documentation created by Arthurdw.
-mySE stands for My Secure Environment!
-mySE was created for GO-Atheneum Oudenaarde
-This project and all it files are under a MIT licence.
-Project (mySE) started on 09/01/2020!
-*/
-
-/*
-This file contains the CSS for the header of the documentation website.
-*/
-
-body {
-    margin: 31px 0;
-    padding: 0;
-    color: #247BA0;
-    background-color: #0E2D3B;
+:root {
+    --theme-color-light: #eeeeee;
+    --theme-color-flash: #00adb5;
+    --theme-color-medium: #393e46;
+    --theme-color-dark: #222831;
 }
 
 header {
-    z-index: 10;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 5px 100px;
-    background: #FF1654;
+    height: 50px;
     width: 100%;
-    box-sizing: border-box;
-    border-bottom: 1px solid #FF4073;
+    float: left;
+    background-color: var(--theme-color-flash);
 }
 
-header a, header nav ul li a {
-    color: white;
-    font-size: 20px;
+header a, header a img {
+    height: 40px;
+    margin: 5px 15vw;
+    /* fill: var(--theme-color-light); */
 }
 
-header nav {
-    float: right;
+.hamburger {
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 5px;
+    overflow: visible;
 }
 
-header nav ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
+.hamburger:hover {
+    opacity: 0.7;
 }
 
-header nav ul li {
-    list-style: none;
+.hamburger.is-active:hover {
+    opacity: 0.7;
 }
 
-header nav ul li a {
-    height: 25px;
-    line-height: 25px;
-    padding: 0 25px;
-    color: white;
-    text-decoration: none;
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: var(--theme-color-dark);
+}
+
+.hamburger-box {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner {
     display: block;
+    top: 50%;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    width: 40px;
+    height: 4px;
+    background-color: var(--theme-color-dark);
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    display: block;
+}
+
+.hamburger-inner::before {
+    top: -10px;
+}
+
+.hamburger-inner::after {
+    bottom: -10px;
+}
+
+.hamburger--slider .hamburger-inner {
+    top: 2px;
+}
+
+.hamburger--slider .hamburger-inner::before {
+    top: 10px;
+    transition-property: transform, opacity;
+    transition-timing-function: ease;
+    transition-duration: 0.15s;
+}
+
+.hamburger--slider .hamburger-inner::after {
+    top: 20px;
+}
+
+.hamburger--slider.is-active .hamburger-inner {
+    transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+
+.hamburger--slider.is-active .hamburger-inner::before {
+    transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+    opacity: 0;
+}
+
+.hamburger--slider.is-active .hamburger-inner::after {
+    transform: translate3d(0, -20px, 0) rotate(-90deg);
 }
