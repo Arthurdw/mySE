@@ -1,4 +1,3 @@
-
 :root {
     --theme-color-light: #eeeeee;
     --theme-color-flash: #00adb5;
@@ -6,18 +5,25 @@
     --theme-color-dark: #222831;
 
     --header-item-count: 4;
+
+    --theme-background-light: #ffffff;
+    --theme-background-dark: #00AA00;
 }
 
 body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+	background: linear-gradient(-45deg, var(--theme-background-dark), var(--theme-color-flash), var(--theme-background-light));
+	background-size: 300% 300%;
+	animation: gradient 15s ease infinite;
 }
 
 #title, #desc {
     padding: 0;
     margin: 0;
     text-align: center;
+    color: var(--theme-color-light);
 }
 
 #title {
@@ -28,6 +34,18 @@ body {
 #desc {
     margin-top: 15px;
     font-size: 25px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 @media all and (min-width:1025px) {
