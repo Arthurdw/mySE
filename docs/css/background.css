@@ -1,0 +1,28 @@
+:root {
+    --theme-color-light: #eeeeee;
+    --theme-color-flash: #00adb5;
+    --theme-color-medium: #393e46;
+    --theme-color-dark: #222831;
+
+    --theme-background-light: #ffffff;
+    --theme-background-dark: #00AA00;
+}
+
+body {
+	background: linear-gradient(-45deg, var(--theme-background-dark), var(--theme-color-flash), var(--theme-background-light));
+	background-size: 300% 300%;
+	animation: gradient 15s ease infinite;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
