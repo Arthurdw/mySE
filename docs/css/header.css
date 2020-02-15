@@ -3,6 +3,8 @@
     --theme-color-flash: #00adb5;
     --theme-color-medium: #393e46;
     --theme-color-dark: #222831;
+
+    --header-item-count: 4;
 }
 
 @media all and (min-width:1025px) {
@@ -57,13 +59,50 @@ header {
     height: 50px;
     width: 100%;
     float: left;
+    position: absolute;
     background-color: var(--theme-color-dark);
+    z-index: 10;
 }
 
 header a,
 header a img {
     height: 40px;
     padding-bottom: 5px;
+}
+
+nav {
+    position: absolute;
+    width: 100%;
+    top: calc((-45px * (var(--header-item-count) - 1)) + 5px);
+    transition: 0.3s ease;
+}
+
+nav.active {
+    top: 50px;
+}
+
+nav ul {
+    list-style: none;
+    background-color: var(--theme-color-dark);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    border-top: 3px solid var(--theme-color-medium);
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px 10px 13px;
+    text-decoration: none;
+    color: var(--theme-color-light);
+}
+
+nav ul li a img {
+    float: right;
+    margin-bottom: -10px;
 }
 
 .hamburger {
