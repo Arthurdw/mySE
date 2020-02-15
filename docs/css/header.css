@@ -5,17 +5,65 @@
     --theme-color-dark: #222831;
 }
 
+@media all and (min-width:1025px) {
+    header a {
+        margin: 5px 0 5px 45vw;
+    }
+}
+
+@media all and (min-width:960px) and (max-width: 1024px) {
+    header a {
+        margin: 5px 0 5px 45vw;
+    }
+}
+
+@media all and (min-width:801px) and (max-width: 959px) {
+    header a {
+        margin: 5px 0 5px 45vw;
+    }
+}
+
+@media all and (min-width:769px) and (max-width: 800px) {
+    header a {
+        margin: 5px 0 5px 40vw;
+    }
+}
+
+@media all and (min-width:569px) and (max-width: 768px) {
+    header a {
+        margin: 5px 0 5px 40vw;
+    }
+}
+
+@media all and (min-width:481px) and (max-width: 568px) {
+    header a {
+        margin: 5px 0 5px 35vw;
+    }
+}
+
+@media all and (min-width:321px) and (max-width: 480px) {
+    header a {
+        margin: 5px 0 5px 30vw;
+    }
+}
+
+@media all and (min-width:0px) and (max-width: 320px) {
+    header a {
+        margin: 5px 0 5px 30vw;
+    }
+}
+
 header {
     height: 50px;
     width: 100%;
     float: left;
-    background-color: var(--theme-color-flash);
+    background-color: var(--theme-color-dark);
 }
 
-header a, header a img {
+header a,
+header a img {
     height: 40px;
-    margin: 5px 15vw;
-    /* fill: var(--theme-color-light); */
+    padding-bottom: 5px;
 }
 
 .hamburger {
@@ -29,7 +77,7 @@ header a, header a img {
     text-transform: none;
     background-color: transparent;
     border: 0;
-    margin: 5px;
+    margin: 10px 8px;
     overflow: visible;
 }
 
@@ -44,7 +92,7 @@ header a, header a img {
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-    background-color: var(--theme-color-dark);
+    background-color: var(--theme-color-light);
 }
 
 .hamburger-box {
@@ -64,7 +112,7 @@ header a, header a img {
 .hamburger-inner::after {
     width: 40px;
     height: 4px;
-    background-color: var(--theme-color-dark);
+    background-color: var(--theme-color-light);
     border-radius: 4px;
     position: absolute;
     transition-property: transform;
