@@ -11,7 +11,7 @@ hamburgerInner.classList.add("hamburger-inner");
 hamburgerBox.append(hamburgerInner);
 hamburger.append(hamburgerBox);
 var home = document.createElement("a");
-home.href = "#";
+home.href = "/";
 var img = document.createElement("img");
 img.src = dark ? "assets/mySE-Light.svg" : "assets/mySE-Dark.svg";
 img.alt = "mySE Icon";
@@ -22,7 +22,7 @@ header.append(home);
 // Navigation Bar Generation:
 var navigation = document.getElementsByTagName("nav")[0];
 var ul = document.createElement("ul");
-addNavBarItem("#", "Home", dark ? "assets/homeLight.svg" : "assets/homeDark.svg", "Home");
+addNavBarItem("/", "Home", dark ? "assets/homeLight.svg" : "assets/homeDark.svg", "Home");
 addNavBarItem("docs/", "Documentation", dark ? "assets/documentationLight.svg" : "assets/documentationDark.svg", "Documentation");
 addNavBarItem("support", "Support", dark ? "assets/supportLight.svg" : "assets/supportDark.svg", "Support server");
 addNavBarItem("login", "Login", dark ? "assets/userLight.svg" : "assets/userDark.svg", "Login");
