@@ -30,3 +30,8 @@ h1, h2, h3, h4, h5, h6, a, p {
     margin-top: calc(70vh/3);
     font-size: 12vw;
 }
+
+.supp img {
+    height: 10vw;
+    width: 10vw;
+}

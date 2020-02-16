@@ -1,0 +1,13 @@
+#login {
+    width: 80%;
+    background-color: rgba(57, 62, 70, 0.6);
+    margin: 15vh auto;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#login form label, #login form input {
+    text-align: left;
+    width: 100%;
+}
