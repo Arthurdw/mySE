@@ -23,7 +23,7 @@ header.append(home);
 var navigation = document.getElementsByTagName("nav")[0];
 var ul = document.createElement("ul");
 addNavBarItem("index", "Home", dark ? "assets/homeLight.svg" : "assets/homeDark.svg", "Home");
-addNavBarItem("docs/", "Documentation", dark ? "assets/documentationLight.svg" : "assets/documentationDark.svg", "Documentation");
+addNavBarItem("documentation", "Documentation", dark ? "assets/documentationLight.svg" : "assets/documentationDark.svg", "Documentation");
 addNavBarItem("support", "Support", dark ? "assets/supportLight.svg" : "assets/supportDark.svg", "Support server");
 addNavBarItem("login", "Login", dark ? "assets/userLight.svg" : "assets/userDark.svg", "Login");
 function addNavBarItem(href, text, src, alt) {

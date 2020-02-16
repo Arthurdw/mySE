@@ -35,3 +35,30 @@ h1, h2, h3, h4, h5, h6, a, p {
     height: 10vw;
     width: 10vw;
 }
+
+.info {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.info h1 {
+    text-align: center;
+}
+
+.info h2 {
+    margin-top: 13px;
+}
+
+.info p {
+    margin-top: 3px;
+}
+
+.info ol {
+    margin: 5px 0 0 17px;
+    padding: 0;
+}
+
+.url {
+    color: #beeaf8;
+    text-decoration: underline;
+}
