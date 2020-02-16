@@ -78,7 +78,7 @@ header a img {
 }
 
 nav {
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: calc((-45px * (var(--header-item-count) - 1)) + 5px);
     transition: 0.3s ease;
