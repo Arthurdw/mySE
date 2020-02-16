@@ -104,8 +104,6 @@ nav ul li {
 nav ul li a {
     display: block;
     padding: 10px 10px 13px;
-    text-decoration: none;
-    color: var(--theme-color-light);
 }
 
 nav ul li a img {

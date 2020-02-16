@@ -9,6 +9,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    background-color: var(--theme-color-medium);
 }
 
 * {
@@ -16,3 +17,16 @@ body {
     -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
     outline: none !important;
 } 
+
+h1, h2, h3, h4, h5, h6, a, p {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: var(--theme-color-light);
+} 
+
+.supp {
+    text-align: center;
+    margin-top: calc(70vh/3);
+    font-size: 12vw;
+}
