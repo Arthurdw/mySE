@@ -1,13 +1,62 @@
-#login {
+:root {
+    --theme-color-light: #eeeeee;
+    --theme-color-flash: #00adb5;
+    --theme-color-medium: #393e46;
+    --theme-color-dark: #222831;
+}
+
+#container {
     width: 80%;
     background-color: rgba(57, 62, 70, 0.6);
-    margin: 15vh auto;
-    padding: 10px;
-    border-radius: 20px;
+    margin: 25vh auto;
+    padding: 10px 10px 0;
+    border-radius: 10px;
     text-align: center;
 }
 
-#login form label, #login form input {
+#container form label, #container form input {
     text-align: left;
     width: 100%;
+    border-radius: 5px;
+}
+
+#container form {
+    margin-top: 10px;
+}
+
+#container form label::after {
+    content: " *";
+    color: red;
+}
+
+#container form label {
+    float: left;
+    font-size: 13px;
+    opacity: 0.8;
+    margin: 10px 0 1px 3px;
+}
+
+#container form input {
+    padding: 3px;
+}
+
+#submit {
+    padding: 10px 20px;
+    margin: 13px 0;
+    float: right;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--theme-color-light);
+    color: var(--theme-color-dark);
+}
+
+.extra {
+    height: 60px;
+}
+
+.extra p {
+    float: left;
+    margin: 3px 0 0 3px;
+    font-size: 12px;
+    text-align: left;
 }
