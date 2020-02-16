@@ -12,23 +12,33 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    color: var(--theme-color-light);
+}
+
+#content {
+    display: block;
 }
 
 #title, #desc {
     padding: 0;
     margin: 0;
     text-align: center;
-    color: var(--theme-color-light);
 }
 
 #title {
-    margin-top: 200px;
+    margin-top: 35vh;
     font-size: 70px;
 }
 
 #desc {
     margin-top: 15px;
     font-size: 25px;
+    margin-bottom: 40vh;
+}
+
+#about {
+    background-color: var(--theme-color-medium);
+    padding: 10px;
 }
 
 @media all and (min-width:1025px) {
