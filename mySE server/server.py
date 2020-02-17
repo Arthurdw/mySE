@@ -27,12 +27,35 @@ from util import SQLite, utils
 app = Flask(__name__)
 api = Api(app)
 
+# class UserGet(Resource):
+#     def post(self):
+#         params = reqparse.RequestParser()
+#         params.add_argument("email")
+#         params.add_argument("password")
+#         _mail = params.parse_args()["email"]
+#         _mail = params.parse_args()["password"]
+#         tokens_db = SQLite.DataBase("tokens")
+#         if _mail in [mail[0] for mail in tokens_db.exe("SELECT mail FROM tokens;")]:
+#             fetch = tokens_db.exe(f"SELECT id, token FROM tokens where mail = '{_mail}'")[0]
+#             return {"id": fetch[0], "token": fetch[1], "statusCode": 200}
+#         return {"error": "Unauthorized, authentication error!", "statusCode": 401}
+
+
+# class UserAdd(Resource):
+#     def post(self):
+#         params = reqparse.RequestParser()
+#         params.add_argument("email")
+#         _mail = params.parse_args()["email"]
+#         tokens_db = SQLite.DataBase("tokens")
+#         if _mail not in [mail[0] for mail in tokens_db.exe("SELECT mail FROM tokens;")]:
+#             return {"token": tokens_db.add_token(_mail), "statusCode": 200}
+#         return {"error": "Unauthorized, authentication error!", "statusCode": 401}
+
 
 class TokenGet(Resource):
     def post(self):
         params = reqparse.RequestParser()
         params.add_argument("email")
-        print(params.parse_args())
         _mail = params.parse_args()["email"]
         tokens_db = SQLite.DataBase("tokens")
         if _mail in [mail[0] for mail in tokens_db.exe("SELECT mail FROM tokens;")]:
