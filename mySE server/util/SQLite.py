@@ -34,6 +34,11 @@ class DataBase:
         self.connection.execute(exe, ins_tuple)
         self.connection.commit()
 
+    def add_user(self, username, email, password):
+        self.connection.execute(f"INSERT INTO users VALUES (?, ?, ?);", (username, email, password))
+        self.connection.commit()
+        self.close()
+
     def add_token(self, mail, _id=None):
         token = None
         while True:

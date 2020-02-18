@@ -22,17 +22,21 @@ from json import dumps
 #       id int, token string, mail string
 #   Logs DB:
 #       id int, time blob, light int, breach int
+#   Users DB:
+#       user_name text, mail text, password text
 
 # Create DB object and DB:
 print("\r", "Creating DB...", end=' ')
 tokens = DataBase("tokens")
 logs = DataBase("logs")
+users = DataBase("users")
 print("\b\b\b\b: Done")
 
 # Add the db parameters:
 print("\r", "Setting up DB", end=' ')
 tokens.setup("tokens", "(id int, token string, mail string)")
 logs.setup("logs", "(id int, time blob, light int, breach int)")
+users.setup("users", "(user_name text, mail text, password text)")
 print("\b\b\b\b: Done")
 
 # Create example token:

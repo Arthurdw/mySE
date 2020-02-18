@@ -1,13 +1,14 @@
 from mySE import mySE
 from time import sleep
 
-local_url, mail = "http://127.0.0.1:5000/", "mail@mail.mail"
+local_url, server_secret, mail = "http://127.0.0.1:5000/", "mySecureServerPassword", "mail@mail.mail"
 
 # Generate a token:
-try:
-    mySE.gen_token(local_url, mail)
-except mySE.error.UnauthorizedError:
-    pass
+# try:
+mySE.gen_token(local_url, server_secret, mail)
+# except mySE.error.UnauthorizedError:
+#     pass
+
 # token = mySe.gen_token(local_url, mail)
 
 # Fetch our token:

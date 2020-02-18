@@ -25,11 +25,11 @@ def get_token(url: str, email: str):
         return loads(fetch.text)["token"]
 
 
-def gen_token(url: str, email: str):
+def gen_token(url: str, secret: str, email: str):
     """Generate your unique auth token!"""
-    fetch = post(url + 'token/add/', data={'email': email})
+    fetch = post(url + 'token/add/', data={'email': email, 'serverSecret': secret})
     if fetch.status_code == 401 or loads(fetch.text)["statusCode"] == 401:
-        raise error.UnauthorizedError("An invalid or used mail was given on `gen_token`!")
+        raise error.UnauthorizedError("An invalid or used mail, or an invalid server secret was given on `gen_token`!")
     else:
         return loads(fetch.text)["token"]
 
