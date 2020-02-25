@@ -23,14 +23,16 @@ header.append(home);
 var navigation = document.getElementsByTagName("nav")[0];
 var ul = document.createElement("ul");
 addNavBarItem("index", "Home", dark ? "assets/homeLight.svg" : "assets/homeDark.svg", "Home");
+addNavBarItem("https://github.com/Arthurdw/mySE", "Github", dark ? "assets/githubLight.svg" : "assets/githubDark.svg", "Github", "_blanc");
 addNavBarItem("documentation", "Documentation", dark ? "assets/documentationLight.svg" : "assets/documentationDark.svg", "Documentation");
 addNavBarItem("support", "Support", dark ? "assets/supportLight.svg" : "assets/supportDark.svg", "Support server");
 addNavBarItem("login", "Login", dark ? "assets/userLight.svg" : "assets/userDark.svg", "Login");
-function addNavBarItem(href, text, src, alt) {
+function addNavBarItem(href, text, src, alt, target="_self") {
     var li = document.createElement("li");
     var a = document.createElement("a");
     a.href = href;
     a.innerText = text;
+    a.target = target
     var img = document.createElement("img");
     img.src = src;
     img.alt = alt;

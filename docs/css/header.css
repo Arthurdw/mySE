@@ -6,7 +6,7 @@
     --theme-color-medium: #393e46;
     --theme-color-dark: #222831;
 
-    --header-item-count: 4;
+    --header-item-count: 5;
 }
 
 header {
@@ -178,7 +178,7 @@ nav ul li a img {
 
     nav ul {
         float: right;
-        width: 600px;
+        width: 800px;
     }
 
     nav ul li {
