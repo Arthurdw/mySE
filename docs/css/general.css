@@ -36,6 +36,18 @@ h1, h2, h3, h4, h5, h6, a, p {
     width: 10vw;
 }
 
+@media all and (min-width:1025px) {
+    .supp {
+        margin-top: calc(50vh/3);
+        font-size: 5vw;
+    }
+
+    .supp img {
+        height: 6vw;
+        width: 6vw;
+    }
+}
+
 .info {
     width: 80%;
     margin: 10px auto;
