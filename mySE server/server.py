@@ -21,9 +21,6 @@ from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
 from util import SQLite, utils
 
-# TODO:
-#   Add a server token to the token generation protocol
-
 
 app = Flask(__name__)
 api = Api(app)
@@ -56,9 +53,9 @@ class UserAdd(Resource):
         _password = params.parse_args()["password"]
         _username = params.parse_args()["username"]
         if params.parse_args()["serverSecret"] == secret["SECRET"]["secret"]:
-            users_db = SQLite.DataBase("tokens")
+            users_db = SQLite.DataBase("users")
             if not users_db.exe(f"SELECT mail FROM users WHERE mail = '{_mail}' AND password = '{_password}';"):
-                fetch = users_db.add_user(_username, _mail, _password)
+                users_db.add_user(_username, _mail, _password)
                 return {"user_name": _username, "statusCode": 200}
         return {"error": "Unauthorized, authentication error!", "statusCode": 401}
 

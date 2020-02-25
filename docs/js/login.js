@@ -1,9 +1,12 @@
+// const config = require('./config.json')
 var container = document.getElementById("container");
 
 function showLogin() {
     var h1 = document.createElement("h1");
     h1.innerText = "Login";
     var form = document.createElement("form");
+    form.method = "POST";
+    form.onsubmit = "redirHome()";
     var labelEmail = document.createElement("label");
     labelEmail.innerText = "Email:";
     var inputEmail = document.createElement("input");
@@ -19,7 +22,9 @@ function showLogin() {
     var p = document.createElement("p");
     p.innerHTML = 'Don\'t have an account?<br><span onclick="createAcc();" class="url" id="createAccount">Create an account</span>';
     var button = document.createElement("button");
-    button.id = button.type = "submit";
+    button.id = "login";
+    button.type = "submit";
+    button.classList.add("submit");
     button.innerText = "Login";
     extra.append(p);
     extra.append(button);
@@ -62,7 +67,8 @@ function createAccount() {
     var p = document.createElement("p");
     p.innerHTML = 'Already have an account?<br><span onclick="showLog();" class="url" id="loginAccount">Login to your account</span>';
     var button = document.createElement("button");
-    button.id = button.type = "submit";
+    button.id = "createAcount";
+    button.classList.add("submit");
     button.innerText = "Create account";
     extra.append(p);
     extra.append(button);
@@ -90,4 +96,18 @@ function showLog() {
 }
 
 showLogin();
-// createAccount();
+
+function redirHome() {
+    window.location.replace('index');
+}
+
+redirHome();
+
+// config.serverUrl
+$("#login").click(function(){
+    const email = document.getElementById("email");
+    console.log(email.innerText);
+    $.post("127.0.0.1:5000", function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+  });

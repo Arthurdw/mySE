@@ -9,65 +9,13 @@
     --header-item-count: 4;
 }
 
-@media all and (min-width:1025px) {
-    header a {
-        margin: 5px 0 5px 45vw;
-    }
-}
-
-@media all and (min-width:960px) and (max-width: 1024px) {
-    header a {
-        margin: 5px 0 5px 45vw;
-    }
-}
-
-@media all and (min-width:801px) and (max-width: 959px) {
-    header a {
-        margin: 5px 0 5px 45vw;
-    }
-}
-
-@media all and (min-width:769px) and (max-width: 800px) {
-    header a {
-        margin: 5px 0 5px 40vw;
-    }
-}
-
-@media all and (min-width:569px) and (max-width: 768px) {
-    header a {
-        margin: 5px 0 5px 40vw;
-    }
-}
-
-@media all and (min-width:481px) and (max-width: 568px) {
-    header a {
-        margin: 5px 0 5px 35vw;
-    }
-}
-
-@media all and (min-width:321px) and (max-width: 480px) {
-    header a {
-        /* position: absolute;
-        top: 5px;
-        bottom: 5px;
-        left: 30vw; */
-        margin: 5px 0 5px 30vw;
-    }
-}
-
-@media all and (min-width:0px) and (max-width: 320px) {
-    header a {
-        margin: 5px 0 5px 30vw;
-    }
-}
-
 header {
+    z-index: 10;
     height: 50px;
     width: 100%;
     float: left;
     position: fixed;
     background-color: var(--theme-color-dark);
-    z-index: 10;
     top: 0;
 }
 
@@ -212,4 +160,92 @@ nav ul li a img {
 
 .hamburger--slider.is-active .hamburger-inner::after {
     transform: translate3d(0, -20px, 0) rotate(-90deg);
+}
+
+@media all and (min-width:1025px) {
+    nav {
+        z-index: 11;
+        top: 0;
+        right: 50px;
+        display: block;
+    }
+
+    header a {
+        position: absolute;
+        top: 5px;
+        left: 50px;
+    }
+
+    nav ul {
+        float: right;
+        width: 600px;
+    }
+
+    nav ul li {
+        border: none;
+        float: left;
+        padding: 4px 10px 4px 10px;
+        transition: background-color ease-in-out 0.3s;
+    }
+
+    nav ul li:hover {
+        background-color: var(--theme-color-medium);
+    }
+
+    nav ul li a img {
+        margin: -5px 10px;
+        float: none;
+    }
+
+
+    #hamburger {
+        position: absolute;
+        top: -300%;
+    }
+}
+
+@media all and (min-width:960px) and (max-width: 1024px) {
+    header a {
+        margin: 5px 0 5px 45vw;
+    }
+}
+
+@media all and (min-width:801px) and (max-width: 959px) {
+    header a {
+        margin: 5px 0 5px 45vw;
+    }
+}
+
+@media all and (min-width:769px) and (max-width: 800px) {
+    header a {
+        margin: 5px 0 5px 40vw;
+    }
+}
+
+@media all and (min-width:569px) and (max-width: 768px) {
+    header a {
+        margin: 5px 0 5px 40vw;
+    }
+}
+
+@media all and (min-width:481px) and (max-width: 568px) {
+    header a {
+        margin: 5px 0 5px 35vw;
+    }
+}
+
+@media all and (min-width:321px) and (max-width: 480px) {
+    header a {
+        /* position: absolute;
+        top: 5px;
+        bottom: 5px;
+        left: 30vw; */
+        margin: 5px 0 5px 30vw;
+    }
+}
+
+@media all and (min-width:0px) and (max-width: 320px) {
+    header a {
+        margin: 5px 0 5px 30vw;
+    }
 }
