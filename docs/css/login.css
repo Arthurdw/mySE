@@ -62,10 +62,6 @@
     text-align: left;
 }
 
-.extra p:hover {
-    cursor: pointer;
-}
-
 @media all and (min-width:400px) {
     #container {
         max-width: 300px;
