@@ -6,7 +6,7 @@ function showLogin() {
     h1.innerText = "Login";
     var form = document.createElement("form");
     form.method = "POST";
-    form.onsubmit = "redirHome()";
+    form.target = "dummyframe"
     var labelEmail = document.createElement("label");
     labelEmail.innerText = "Email:";
     var inputEmail = document.createElement("input");
@@ -101,13 +101,14 @@ function redirHome() {
     window.location.replace('index');
 }
 
-redirHome();
+// redirHome();
 
 // config.serverUrl
-$("#login").click(function(){
-    const email = document.getElementById("email");
-    console.log(email.innerText);
-    $.post("127.0.0.1:5000", function(data, status){
+$("#login").click(function () {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    if (email.includes("@") && password.length > 0) console.log("yes");
+    $.post("127.0.0.1:5000", function (data, status) {
         alert("Data: " + data + "\nStatus: " + status);
     });
-  });
+});
