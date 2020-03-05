@@ -34,7 +34,7 @@ class UserGet(Resource):
         params = reqparse.RequestParser()
         params.add_argument("email")
         params.add_argument("password")
-        _mail = params.parse_args()["email"]
+        _mail = str(params.parse_args()["email"]).lower()
         _password = params.parse_args()["password"]
         users_db = SQLite.DataBase("users")
         if users_db.exe(f"SELECT mail FROM users WHERE mail = '{_mail}' AND password = '{_password}';"):
@@ -50,7 +50,7 @@ class UserAdd(Resource):
         params.add_argument("username")
         params.add_argument("password")
         params.add_argument("serverSecret")
-        _mail = params.parse_args()["email"]
+        _mail = str(params.parse_args()["email"]).lower()
         _password = params.parse_args()["password"]
         _username = params.parse_args()["username"]
         if params.parse_args()["serverSecret"] == secret["SECRET"]["secret"]:
@@ -65,7 +65,7 @@ class TokenGet(Resource):
     def post(self):
         params = reqparse.RequestParser()
         params.add_argument("email")
-        _mail = params.parse_args()["email"]
+        _mail = str(params.parse_args()["email"]).lower()
         tokens_db = SQLite.DataBase("tokens")
         if _mail in [mail[0] for mail in tokens_db.exe("SELECT mail FROM tokens;")]:
             fetch = tokens_db.exe(f"SELECT id, token FROM tokens WHERE mail = '{_mail}'")[0]
@@ -78,7 +78,7 @@ class TokenAdd(Resource):
         params = reqparse.RequestParser()
         params.add_argument("email")
         params.add_argument("serverSecret")
-        _mail = params.parse_args()["email"]
+        _mail = str(params.parse_args()["email"]).lower()
         tokens_db = SQLite.DataBase("tokens")
         if params.parse_args()["serverSecret"] == secret["SECRET"]["secret"]:
             if _mail not in [mail[0] for mail in tokens_db.exe("SELECT mail FROM tokens;")]:

@@ -22,16 +22,18 @@ header.append(home);
 // Navigation Bar Generation:
 var navigation = document.getElementsByTagName("nav")[0];
 var ul = document.createElement("ul");
-addNavBarItem("index", "Home", dark ? "assets/homeLight.svg" : "assets/homeDark.svg", "Home");
-addNavBarItem("https://github.com/Arthurdw/mySE", "Github", dark ? "assets/githubLight.svg" : "assets/githubDark.svg", "Github", "_blanc");
+var user = localStorage.getItem("user");
+addNavBarItem("https://arthurdw.github.io/mySE/", "Home", dark ? "assets/homeLight.svg" : "assets/homeDark.svg", "Home");
+addNavBarItem("https://github.com/Arthurdw/mySE", "Github", dark ? "assets/githubLight.svg" : "assets/githubDark.svg", "Github", null, "_blanc");
 addNavBarItem("documentation", "Documentation", dark ? "assets/documentationLight.svg" : "assets/documentationDark.svg", "Documentation");
 addNavBarItem("support", "Support", dark ? "assets/supportLight.svg" : "assets/supportDark.svg", "Support server");
-addNavBarItem("login", "Login", dark ? "assets/userLight.svg" : "assets/userDark.svg", "Login");
-function addNavBarItem(href, text, src, alt, target="_self") {
+addNavBarItem(user == null ? "login" : "profile", user == null ? "Login" : user, dark ? "assets/userLight.svg" : "assets/userDark.svg", "Login", "loginHeader");
+function addNavBarItem(href, text, src, alt, id=null, target="_self") {
     var li = document.createElement("li");
     var a = document.createElement("a");
     a.href = href;
     a.innerText = text;
+    if (id != null) a.id = id;
     a.target = target
     var img = document.createElement("img");
     img.src = src;
