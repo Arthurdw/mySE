@@ -20,13 +20,14 @@ from json import loads
 from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
 from util import SQLite, utils
+from flask_cors import CORS
 
 
 app = Flask(__name__)
 api = Api(app)
 secret = ConfigParser()
 secret.read("serverSecret.cfg")
-
+CORS(app, supports_credentials=True)
 
 class UserGet(Resource):
     def post(self):
