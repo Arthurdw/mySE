@@ -1,3 +1,6 @@
+# DUE TO CORONA THIS PROJECT HAS BEEN DISCONTINUED  
+## Feel free to use this project as a base for yours if you want to.  
+
 My Secure Environment  
 
 ![Made with](https://img.shields.io/badge/made%20with-love-red?style=social)  
